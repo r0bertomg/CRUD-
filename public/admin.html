@@ -4,59 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Administração</title>
+    <title>Assinantes | cinelume</title>
 </head>
 <body>
-    <h1>Administração de Usuários</h1>
+    <header class="topo">
+        <a class="marca" href="BemVindo.html">cinelume</a>
+        <nav>
+            <a href="BemVindo.html">Voltar ao início</a>
+        </nav>
+    </header>
 
-    <p><a href="BemVindo.html">Voltar</a></p>
+    <main class="conteudo">
+        <h1>Assinantes</h1>
 
-    <input type="text" id="busca" placeholder="Buscar por CPF">
-    <button onclick="buscar()">Buscar</button>
-    <button onclick="listar()">Mostrar todos</button>
+        <div class="barra">
+            <input type="text" id="busca" placeholder="Buscar por CPF">
+            <button onclick="buscar()">Buscar</button>
+            <button class="sec" onclick="listar()">Mostrar todos</button>
+        </div>
 
-    <br><br>
+        <div class="tabela">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Sobrenome</th>
+                        <th>CPF</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                        <th>Cidade</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="lista"></tbody>
+            </table>
+        </div>
+    </main>
 
-    <table>
-        <tr>
-            <th>Nome</th>
-            <th>Sobrenome</th>
-            <th>CPF</th>
-            <th>Email</th>
-            <th>Telefone</th>
-            <th>Cidade</th>
-            <th>Ações</th>
-        </tr>
-        <tbody id="lista"></tbody>
-    </table>
+    <aside id="edicao" style="display: none;">
+        <h2>Editar assinante</h2>
 
-    <div id="edicao" style="display: none;">
-        <h2 style="font-size: 30px;">Editar usuário</h2>
+        <div class="campo">
+            <label>Nome</label>
+            <input type="text" id="nome">
+        </div>
+        <div class="campo">
+            <label>Sobrenome</label>
+            <input type="text" id="sobrenome">
+        </div>
+        <div class="campo">
+            <label>CPF</label>
+            <input type="text" id="cpf">
+        </div>
+        <div class="campo">
+            <label>Email</label>
+            <input type="text" id="email">
+        </div>
+        <div class="campo">
+            <label>Senha</label>
+            <input type="text" id="senha">
+        </div>
+        <div class="campo">
+            <label>Rua</label>
+            <input type="text" id="rua">
+        </div>
+        <div class="campo">
+            <label>CEP</label>
+            <input type="text" id="cep">
+        </div>
+        <div class="campo">
+            <label>Cidade</label>
+            <input type="text" id="cidade">
+        </div>
+        <div class="campo">
+            <label>Estado</label>
+            <input type="text" id="estado">
+        </div>
+        <div class="campo">
+            <label>Telefone</label>
+            <input type="text" id="telefone">
+        </div>
 
-        <label>Nome:</label><br>
-            <input type="text" id="nome"><br>
-        <label>Sobrenome:</label><br>
-            <input type="text" id="sobrenome"><br>
-        <label>CPF:</label><br>
-            <input type="text" id="cpf"><br>
-        <label>Email:</label><br>
-            <input type="text" id="email"><br>
-        <label>Senha:</label><br>
-            <input type="text" id="senha"><br>
-        <label>Rua:</label><br>
-            <input type="text" id="rua"><br>
-        <label>CEP:</label><br>
-            <input type="text" id="cep"><br>
-        <label>Cidade:</label><br>
-            <input type="text" id="cidade"><br>
-        <label>Estado:</label><br>
-            <input type="text" id="estado"><br>
-        <label>Telefone:</label><br>
-            <input type="text" id="telefone"><br><br>
-
-        <button onclick="salvar()">Salvar</button>
-        <button onclick="cancelar()">Cancelar</button>
-    </div>
+        <div class="acoes">
+            <button onclick="salvar()">Salvar</button>
+            <button class="sec" onclick="cancelar()">Cancelar</button>
+        </div>
+    </aside>
 
     <script src="admin.js"></script>
 </body>
