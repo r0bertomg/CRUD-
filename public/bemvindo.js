@@ -6,7 +6,7 @@ if (usuario === null) {
     document.getElementById('nome').innerHTML = usuario.nome + ' ' + usuario.sobrenome;
 
     if (usuario.perfil === 'admin') {
-        document.getElementById('linkAdmin').innerHTML = '<a href="admin.html">Administração de usuários</a>';
+        document.getElementById('linkAdmin').innerHTML = '<a href="/public/admin.html">Administração de usuários</a>';
     }
 }
 
