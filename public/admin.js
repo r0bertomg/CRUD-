@@ -2,7 +2,7 @@ let usuario = JSON.parse(localStorage.getItem('usuario'));
 
 if (usuario === null || usuario.perfil !== 'admin') {
     alert('Acesso permitido apenas para administrador!');
-    window.location.href = 'index.html';
+    window.location.href = '/public/index.html';
 }
 
 let idEditando = 0;
