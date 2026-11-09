@@ -4,16 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Bem vindo</title>
+    <title>Início | cinelume</title>
 </head>
 <body>
-    <h2>Bem Vindo</h2>
+    <header class="topo">
+        <a class="marca" href="BemVindo.html">cinelume</a>
+        <nav>
+            <span id="linkAdmin"></span>
+            <button class="sec" onclick="sair()">Sair</button>
+        </nav>
+    </header>
 
-    <p id="nome"></p>
+    <section class="banner">
+        <h1>Olá, <span id="nome"></span></h1>
+        <p>Escolha o que assistir hoje.</p>
+    </section>
 
-    <p id="linkAdmin"></p>
+    <section class="fileira">
+        <h3>Em alta</h3>
+        <div class="cartazes">
+            <div class="cartaz">Noite Azul<small>Drama</small></div>
+            <div class="cartaz">Maré Viva<small>Aventura</small></div>
+            <div class="cartaz">Sol Vermelho<small>Ação</small></div>
+            <div class="cartaz">Código Aurora<small>Ficção científica</small></div>
+            <div class="cartaz">Último Verão<small>Romance</small></div>
+            <div class="cartaz">Cidade Fantasma<small>Suspense</small></div>
+        </div>
+    </section>
 
-    <button onclick="sair()">Sair</button>
+    <section class="fileira">
+        <h3>Novidades</h3>
+        <div class="cartazes">
+            <div class="cartaz">Estrelas de Papel<small>Animação</small></div>
+            <div class="cartaz">A Última Sessão<small>Documentário</small></div>
+            <div class="cartaz">Linha do Tempo<small>Ficção científica</small></div>
+            <div class="cartaz">Ventos do Sul<small>Drama</small></div>
+            <div class="cartaz">Rota 66<small>Ação</small></div>
+            <div class="cartaz">Pequenas Luzes<small>Família</small></div>
+        </div>
+    </section>
 
     <script src="bemvindo.js"></script>
 </body>
