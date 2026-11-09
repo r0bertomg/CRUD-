@@ -1,45 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;800&family=Zen+Maru+Gothic:wght@400;500;700&display=swap');
+
+:root {
+    --fundo: #fbe3ea;
+    --cartao: #ffffff;
+    --tinta: #3b1f2e;
+    --suave: #85596e;
+    --linha: #efcad8;
+    --rosa: #c2255c;
+    --rosa-escuro: #9e1a49;
+    --ameixa: #4a2437;
+    --erro: #8f1d1d;
+    --titulo: 'Shippori Mincho', Georgia, serif;
+    --corpo: 'Zen Maru Gothic', Arial, sans-serif;
+}
+
 * {
-    margin: 8px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    background:
+        radial-gradient(circle at 90% 8%, #f8b9cd 0, transparent 28%),
+        radial-gradient(circle at 6% 92%, #f6c9d8 0, transparent 32%),
+        var(--fundo);
+    background-attachment: fixed;
 }
 
 body {
-    background-color: rgb(27, 26, 26);
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
+    width: min(440px, calc(100% - 32px));
+    margin: 48px auto;
+    padding: 40px 34px 34px;
+    background: var(--cartao);
+    color: var(--tinta);
+    font-family: var(--corpo);
+    font-size: 16px;
+    line-height: 1.55;
+    text-align: left;
+    border-radius: 28px;
+    box-shadow: 0 20px 50px rgba(158, 26, 73, 0.18);
 }
 
-a {
-    color: white;
-    text-decoration: none;
+body:has(table) {
+    width: min(1100px, calc(100% - 32px));
+    overflow-x: auto;
 }
 
-input {
-    border-radius: 6px;
-    background-color: rgb(99, 94, 94);
-    text-align: center;
-    color: rgb(248, 246, 246);
+h1,
+h2 {
+    font-family: var(--titulo);
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--ameixa);
+    margin-bottom: 24px;
 }
 
-button {
-    background-color: gray;
-    border-radius: 4px;
-    cursor: pointer;
+h1 {
+    font-size: 34px;
 }
 
 h2 {
-    color: gray;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 66px;
+    font-size: 44px;
+    margin-bottom: 8px;
+}
+
+p {
+    margin-top: 18px;
+    color: var(--suave);
+}
+
+p#nome {
+    margin: 0 0 28px;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--rosa);
+}
+
+a {
+    color: var(--rosa);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+a:hover {
+    color: var(--rosa-escuro);
+}
+
+br {
+    display: none;
+}
+
+label {
+    display: block;
+    margin-top: 14px;
+    margin-bottom: 4px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--suave);
+}
+
+input {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+    padding: 12px 16px;
+    background: #fff;
+    color: var(--tinta);
+    font: inherit;
+    text-align: left;
+    border: 1.5px solid var(--linha);
+    border-radius: 14px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+label + input {
+    margin-top: 0;
+}
+
+input::placeholder {
+    color: #c39aad;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--rosa);
+    box-shadow: 0 0 0 4px rgba(194, 37, 92, 0.16);
+}
+
+button {
+    padding: 11px 22px;
+    background: var(--rosa);
+    color: #fff;
+    font: inherit;
+    font-weight: 700;
+    border: 1.5px solid var(--rosa);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+button:hover {
+    background: var(--rosa-escuro);
+    border-color: var(--rosa-escuro);
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--ameixa);
+    outline-offset: 3px;
+}
+
+button + button {
+    margin-left: 8px;
+    background: transparent;
+    color: var(--ameixa);
+    border-color: var(--ameixa);
+}
+
+button + button:hover {
+    background: var(--ameixa);
+    color: #fff;
+    border-color: var(--ameixa);
+}
+
+body:not(:has(table)) > button {
+    display: block;
+    width: 100%;
+    margin-top: 28px;
+}
+
+body:has(table) > input {
+    display: inline-block;
+    width: 280px;
+    max-width: 100%;
+    margin: 0 8px 0 0;
+}
+
+body:has(table) > p {
+    margin: 0 0 24px;
 }
 
 table {
-    margin: auto;
-    border-collapse: collapse;
+    width: 100%;
+    margin-top: 28px;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 15px;
+    border: 1.5px solid var(--linha);
+    border-radius: 16px;
+    overflow: hidden;
 }
 
-th, td {
-    border: 1px solid gray;
-    padding: 6px;
-    margin: 0;
+th {
+    padding: 12px 14px;
+    background: var(--ameixa);
+    color: #fff;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+}
+
+td {
+    padding: 12px 14px;
+    border-top: 1px solid var(--linha);
+}
+
+tbody tr:hover td {
+    background: #fff3f7;
+}
+
+td button {
+    padding: 5px 14px;
+    font-size: 14px;
+}
+
+td button + button {
+    margin-left: 6px;
+    background: transparent;
+    color: var(--erro);
+    border-color: var(--erro);
+}
+
+td button + button:hover {
+    background: var(--erro);
+    color: #fff;
+    border-color: var(--erro);
+}
+
+#edicao {
+    max-width: 440px;
+    margin-top: 36px;
+    padding: 26px;
+    background: #fff7fa;
+    border: 1.5px solid var(--linha);
+    border-radius: 22px;
+}
+
+#edicao h2 {
+    font-size: 26px !important;
+    margin-bottom: 8px;
+}
+
+#edicao button {
+    margin-top: 24px;
+}
+
+@media (max-width: 480px) {
+    body {
+        margin: 16px auto;
+        padding: 30px 20px 26px;
+        border-radius: 22px;
+    }
+
+    h2 {
+        font-size: 36px;
+    }
+
+    body:has(table) > input {
+        width: 100%;
+        margin: 0 0 8px;
+    }
 }
