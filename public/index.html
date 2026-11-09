@@ -4,20 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Login</title>
+    <title>Entrar | cinelume</title>
 </head>
 <body>
-    <h1>login</h1>
+    <main class="auth">
+        <section class="auth-hero">
+            <a class="marca" href="index.html">cinelume</a>
+            <div>
+                <h2>Sua sessão começa aqui.</h2>
+                <p>Entre com seu CPF para voltar de onde parou.</p>
+            </div>
+        </section>
 
-    <label>CPF</label><br>
+        <section class="auth-form">
+            <div class="caixa">
+                <h1>Entrar</h1>
 
-    <input type="text" id="cpf" placeholder="000.000.000-00"><br>
+                <div class="campo">
+                    <label>CPF</label>
+                    <input type="text" id="cpf" placeholder="000.000.000-00">
+                </div>
 
-    <input type="password" id="senha" placeholder="Senha"><br><br>
+                <div class="campo">
+                    <label>Senha</label>
+                    <input type="password" id="senha" placeholder="Sua senha">
+                </div>
 
-    <button onclick="enviarDados()">Entrar</button>
+                <button class="cheio" onclick="enviarDados()">Entrar</button>
 
-    <p>Ainda não tem login ? <a href="cadastro.html">cadastre-se</a></p>
+                <p class="troca">Ainda não tem conta? <a href="cadastro.html">Cadastre-se</a></p>
+            </div>
+        </section>
+    </main>
 
     <script src="login.js"></script>
 </body>
