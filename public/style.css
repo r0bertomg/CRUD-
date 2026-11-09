@@ -1,17 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;800&family=Zen+Maru+Gothic:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&display=swap');
 
 :root {
-    --fundo: #fbe3ea;
-    --cartao: #ffffff;
-    --tinta: #3b1f2e;
-    --suave: #85596e;
-    --linha: #efcad8;
-    --rosa: #c2255c;
-    --rosa-escuro: #9e1a49;
-    --ameixa: #4a2437;
-    --erro: #8f1d1d;
-    --titulo: 'Shippori Mincho', Georgia, serif;
-    --corpo: 'Zen Maru Gothic', Arial, sans-serif;
+    --fundo: #090d1a;
+    --painel: #121a30;
+    --linha: #25304f;
+    --texto: #eef1fa;
+    --suave: #94a0c4;
+    --ambar: #ffb43a;
+    --ambar-escuro: #e69a1c;
+    --perigo: #ff6b6b;
+    --fonte: 'Outfit', 'Segoe UI', Arial, sans-serif;
 }
 
 * {
@@ -20,248 +18,431 @@
     box-sizing: border-box;
 }
 
-html {
-    min-height: 100%;
-    background:
-        radial-gradient(circle at 90% 8%, #f8b9cd 0, transparent 28%),
-        radial-gradient(circle at 6% 92%, #f6c9d8 0, transparent 32%),
-        var(--fundo);
-    background-attachment: fixed;
-}
-
 body {
-    width: min(440px, calc(100% - 32px));
-    margin: 48px auto;
-    padding: 40px 34px 34px;
-    background: var(--cartao);
-    color: var(--tinta);
-    font-family: var(--corpo);
-    font-size: 16px;
-    line-height: 1.55;
-    text-align: left;
-    border-radius: 28px;
-    box-shadow: 0 20px 50px rgba(158, 26, 73, 0.18);
-}
-
-body:has(table) {
-    width: min(1100px, calc(100% - 32px));
-    overflow-x: auto;
-}
-
-h1,
-h2 {
-    font-family: var(--titulo);
-    font-weight: 800;
-    line-height: 1.15;
-    color: var(--ameixa);
-    margin-bottom: 24px;
-}
-
-h1 {
-    font-size: 34px;
-}
-
-h2 {
-    font-size: 44px;
-    margin-bottom: 8px;
-}
-
-p {
-    margin-top: 18px;
-    color: var(--suave);
-}
-
-p#nome {
-    margin: 0 0 28px;
-    font-size: 22px;
-    font-weight: 500;
-    color: var(--rosa);
+    min-height: 100vh;
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: var(--fonte);
+    line-height: 1.5;
 }
 
 a {
-    color: var(--rosa);
-    font-weight: 700;
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 4px;
+    color: var(--ambar);
+    font-weight: 500;
+    text-decoration: none;
 }
 
 a:hover {
-    color: var(--rosa-escuro);
+    text-decoration: underline;
+    text-underline-offset: 4px;
 }
 
-br {
-    display: none;
+.marca {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--texto);
+}
+
+.marca:hover {
+    text-decoration: none;
+}
+
+.marca::before {
+    content: '';
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--ambar);
+    box-shadow: 0 0 18px 4px rgba(255, 180, 58, 0.55);
+}
+
+.auth {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+}
+
+.auth.larga {
+    grid-template-columns: 0.8fr 1.2fr;
+}
+
+.auth-hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 48px;
+    padding: 48px 56px;
+    overflow: hidden;
+    background: linear-gradient(160deg, #1b2350 0%, #0b1020 70%);
+}
+
+.auth-hero::after {
+    content: '';
+    position: absolute;
+    top: -160px;
+    left: -140px;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 180, 58, 0.35), transparent 65%);
+    pointer-events: none;
+}
+
+.auth-hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+.auth-hero h2 {
+    max-width: 11ch;
+    font-size: clamp(36px, 4.4vw, 60px);
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+}
+
+.auth-hero p {
+    max-width: 36ch;
+    margin-top: 16px;
+    color: var(--suave);
+}
+
+.auth-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+}
+
+.caixa {
+    width: min(420px, 100%);
+}
+
+.larga .caixa {
+    width: min(560px, 100%);
+}
+
+.caixa h1 {
+    margin-bottom: 28px;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.campos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.campo {
+    margin-bottom: 16px;
+}
+
+.campos + .cheio {
+    margin-top: 24px;
+}
+
+.campos .campo {
+    margin-bottom: 0;
+}
+
+.campo.largo {
+    grid-column: 1 / -1;
 }
 
 label {
     display: block;
-    margin-top: 14px;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 500;
     color: var(--suave);
 }
 
 input {
-    display: block;
     width: 100%;
-    margin-top: 8px;
-    padding: 12px 16px;
-    background: #fff;
-    color: var(--tinta);
+    padding: 12px 14px;
+    background: var(--painel);
+    color: var(--texto);
     font: inherit;
-    text-align: left;
     border: 1.5px solid var(--linha);
-    border-radius: 14px;
+    border-radius: 10px;
     transition: border-color 0.15s, box-shadow 0.15s;
 }
 
-label + input {
-    margin-top: 0;
-}
-
 input::placeholder {
-    color: #c39aad;
+    color: #5c6890;
 }
 
 input:focus {
     outline: none;
-    border-color: var(--rosa);
-    box-shadow: 0 0 0 4px rgba(194, 37, 92, 0.16);
+    border-color: var(--ambar);
+    box-shadow: 0 0 0 3px rgba(255, 180, 58, 0.2);
 }
 
 button {
     padding: 11px 22px;
-    background: var(--rosa);
-    color: #fff;
+    background: var(--ambar);
+    color: #1a1204;
     font: inherit;
     font-weight: 700;
-    border: 1.5px solid var(--rosa);
-    border-radius: 999px;
+    border: 1.5px solid var(--ambar);
+    border-radius: 10px;
     cursor: pointer;
     transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
 
 button:hover {
-    background: var(--rosa-escuro);
-    border-color: var(--rosa-escuro);
+    background: var(--ambar-escuro);
+    border-color: var(--ambar-escuro);
 }
 
 button:focus-visible,
-a:focus-visible {
-    outline: 3px solid var(--ameixa);
-    outline-offset: 3px;
+a:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--texto);
+    outline-offset: 2px;
 }
 
+button.sec,
 button + button {
-    margin-left: 8px;
     background: transparent;
-    color: var(--ameixa);
-    border-color: var(--ameixa);
+    color: var(--texto);
+    border-color: var(--linha);
 }
 
+button.sec:hover,
 button + button:hover {
-    background: var(--ameixa);
-    color: #fff;
-    border-color: var(--ameixa);
+    background: var(--painel);
+    border-color: var(--suave);
 }
 
-body:not(:has(table)) > button {
-    display: block;
+.cheio {
     width: 100%;
-    margin-top: 28px;
+    margin-top: 8px;
 }
 
-body:has(table) > input {
-    display: inline-block;
-    width: 280px;
+.troca {
+    margin-top: 24px;
+    color: var(--suave);
+}
+
+.topo {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 40px;
+    background: rgba(9, 13, 26, 0.88);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--linha);
+}
+
+.topo nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.banner {
+    padding: 80px 40px 56px;
+    background:
+        radial-gradient(circle at 85% 0%, rgba(255, 180, 58, 0.22), transparent 45%),
+        linear-gradient(180deg, #151d42 0%, var(--fundo) 100%);
+}
+
+.banner h1 {
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+}
+
+.banner p {
+    margin-top: 14px;
+    color: var(--suave);
+    font-size: 18px;
+}
+
+.fileira {
+    padding: 8px 40px 36px;
+}
+
+.fileira h3 {
+    margin-bottom: 16px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.cartazes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 16px;
+}
+
+.cartaz {
+    aspect-ratio: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 14px;
+    font-weight: 700;
+    line-height: 1.15;
+    border: 1px solid var(--linha);
+    border-radius: 12px;
+    transition: transform 0.2s;
+}
+
+.cartaz:hover {
+    transform: scale(1.04);
+}
+
+.cartaz small {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.cartaz:nth-child(1) { background: linear-gradient(to top, rgba(0,0,0,.75), transparent 60%), linear-gradient(145deg, #3a2a8f, #c2467a); }
+.cartaz:nth-child(2) { background: linear-gradient(to top, rgba(0,0,0,.75), transparent 60%), linear-gradient(145deg, #0f5c6e, #2fbf9b); }
+.cartaz:nth-child(3) { background: linear-gradient(to top, rgba(0,0,0,.75), transparent 60%), linear-gradient(145deg, #7a2a1c, #ffb43a); }
+.cartaz:nth-child(4) { background: linear-gradient(to top, rgba(0,0,0,.75), transparent 60%), linear-gradient(145deg, #1c2f7a, #4aa3ff); }
+.cartaz:nth-child(5) { background: linear-gradient(to top, rgba(0,0,0,.75), transparent 60%), linear-gradient(145deg, #4a1c5e, #ff6b9a); }
+.cartaz:nth-child(6) { background: linear-gradient(to top, rgba(0,0,0,.75), transparent 60%), linear-gradient(145deg, #2a3a1c, #9acb3a); }
+
+.conteudo {
+    padding: 32px 40px 56px;
+}
+
+.conteudo h1 {
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.barra {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 24px 0;
+}
+
+.barra input {
+    width: 300px;
     max-width: 100%;
-    margin: 0 8px 0 0;
 }
 
-body:has(table) > p {
-    margin: 0 0 24px;
+.tabela {
+    overflow-x: auto;
+    border: 1px solid var(--linha);
+    border-radius: 14px;
 }
 
 table {
     width: 100%;
-    margin-top: 28px;
-    border-collapse: separate;
-    border-spacing: 0;
+    border-collapse: collapse;
     font-size: 15px;
-    border: 1.5px solid var(--linha);
-    border-radius: 16px;
-    overflow: hidden;
 }
 
 th {
-    padding: 12px 14px;
-    background: var(--ameixa);
-    color: #fff;
-    font-weight: 700;
+    padding: 14px 16px;
+    background: var(--painel);
+    color: var(--suave);
+    font-size: 14px;
+    font-weight: 500;
     text-align: left;
     white-space: nowrap;
 }
 
 td {
-    padding: 12px 14px;
+    padding: 14px 16px;
     border-top: 1px solid var(--linha);
+    white-space: nowrap;
 }
 
 tbody tr:hover td {
-    background: #fff3f7;
+    background: rgba(18, 26, 48, 0.7);
 }
 
 td button {
-    padding: 5px 14px;
+    padding: 6px 14px;
     font-size: 14px;
 }
 
 td button + button {
-    margin-left: 6px;
-    background: transparent;
-    color: var(--erro);
-    border-color: var(--erro);
+    margin-left: 8px;
+    color: var(--perigo);
+    border-color: rgba(255, 107, 107, 0.45);
 }
 
 td button + button:hover {
-    background: var(--erro);
-    color: #fff;
-    border-color: var(--erro);
+    background: var(--perigo);
+    color: #1a0808;
+    border-color: var(--perigo);
 }
 
 #edicao {
-    max-width: 440px;
-    margin-top: 36px;
-    padding: 26px;
-    background: #fff7fa;
-    border: 1.5px solid var(--linha);
-    border-radius: 22px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    width: min(420px, 100%);
+    padding: 28px;
+    overflow-y: auto;
+    background: var(--painel);
+    border-left: 1px solid var(--linha);
+    box-shadow: -30px 0 60px rgba(0, 0, 0, 0.5);
 }
 
 #edicao h2 {
-    font-size: 26px !important;
-    margin-bottom: 8px;
+    margin-bottom: 24px;
+    font-size: 24px;
+    font-weight: 800;
 }
 
-#edicao button {
+.acoes {
+    display: flex;
+    gap: 10px;
     margin-top: 24px;
 }
 
-@media (max-width: 480px) {
-    body {
-        margin: 16px auto;
-        padding: 30px 20px 26px;
-        border-radius: 22px;
+@media (max-width: 800px) {
+    .auth,
+    .auth.larga {
+        grid-template-columns: 1fr;
     }
 
-    h2 {
-        font-size: 36px;
+    .auth-hero {
+        padding: 28px 24px;
+        gap: 24px;
     }
 
-    body:has(table) > input {
-        width: 100%;
-        margin: 0 0 8px;
+    .auth-hero h2 {
+        font-size: 34px;
+    }
+
+    .campos {
+        grid-template-columns: 1fr;
+    }
+
+    .topo {
+        padding: 14px 20px;
+    }
+
+    .banner,
+    .fileira,
+    .conteudo {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }
